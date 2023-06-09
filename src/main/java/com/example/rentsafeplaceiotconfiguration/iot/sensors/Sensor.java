@@ -8,5 +8,4 @@ public interface Sensor {
     float getValue();
 
     void setRandomValue(boolean isStressed);
-    String getStringValue();
 }

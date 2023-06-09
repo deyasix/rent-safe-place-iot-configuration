@@ -14,8 +14,4 @@ public class VolumeSensor implements Sensor{
         isVolumeChanged = isStressed;
     }
 
-    @Override
-    public String getStringValue() {
-        return "Volume: " + (isVolumeChanged?"is changed":"stable");
-    }
 }

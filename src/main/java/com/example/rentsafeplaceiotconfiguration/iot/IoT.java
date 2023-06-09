@@ -81,21 +81,11 @@ public class IoT {
     public void setUI(String[] values, String tru, String fals, String stable, String unstable, String dB) {
         for (int i = 0; i < values.length; i++) {
             switch (sensors[i].getClass().getSimpleName()) {
-                case("HumiditySensor") -> {
-                    labels[i].setText(values[i] + sensors[i].getValue() + "%");
-                }
-                case("SmokeSensor") -> {
-                    labels[i].setText(values[i] + (sensors[i].getValue()==1?tru:fals));
-                }
-                case("SoundSensor") -> {
-                    labels[i].setText(values[i] + sensors[i].getValue() + " " + dB);
-                }
-                case("TemperatureSensor") -> {
-                    labels[i].setText(values[i] +  sensors[i].getValue() + " °" + ((TemperatureSensor) sensors[i]).getMeasurement() );
-                }
-                case("VolumeSensor") -> {
-                    labels[i].setText(values[i] + (sensors[i].getValue()==1?unstable:stable));
-                }
+                case("HumiditySensor") -> labels[i].setText(values[i] + sensors[i].getValue() + "%");
+                case("SmokeSensor") -> labels[i].setText(values[i] + (sensors[i].getValue()==1?tru:fals));
+                case("SoundSensor") -> labels[i].setText(values[i] + sensors[i].getValue() + " " + dB);
+                case("TemperatureSensor") -> labels[i].setText(values[i] +  sensors[i].getValue() + " °" + ((TemperatureSensor) sensors[i]).getMeasurement() );
+                case("VolumeSensor") -> labels[i].setText(values[i] + (sensors[i].getValue()==1?unstable:stable));
             }
             labels[i].setFont(Font.font("Arial", FontWeight.MEDIUM, 22));
         }
@@ -122,9 +112,7 @@ public class IoT {
         Timeline timeline = new Timeline();
         KeyFrame initialKeyFrame = new KeyFrame(Duration.ZERO, event -> setGetValues(false));
         timeline.getKeyFrames().add(initialKeyFrame);
-        KeyFrame repeatedKeyFrame = new KeyFrame(Duration.seconds(1), event -> {
-            setGetValues(true);
-        });
+        KeyFrame repeatedKeyFrame = new KeyFrame(Duration.seconds(1), event -> setGetValues(true));
         timeline.getKeyFrames().add(repeatedKeyFrame);
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();

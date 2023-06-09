@@ -22,8 +22,4 @@ public class SoundSensor implements Sensor{
         value = (random.nextInt(max + 1 - min) + min);
     }
 
-    @Override
-    public String getStringValue() {
-        return "Sound: " + value + " dB";
-    }
 }

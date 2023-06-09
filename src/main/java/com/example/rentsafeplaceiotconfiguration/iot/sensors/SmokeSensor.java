@@ -14,8 +14,4 @@ public class SmokeSensor implements Sensor {
         isSmoke = isStressed;
     }
 
-    @Override
-    public String getStringValue() {
-        return "Smoke: " + isSmoke;
-    }
 }

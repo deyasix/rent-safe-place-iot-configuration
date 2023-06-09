@@ -22,7 +22,4 @@ public class HumiditySensor implements Sensor{
         value = (random.nextInt(max + 1 - min) + min);
     }
 
-    public String getStringValue() {
-        return "Humidity: " + value + "%";
-    }
 }

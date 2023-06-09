@@ -52,8 +52,4 @@ public class TemperatureSensor implements Sensor{
         value = (random.nextInt(max + 1 - min) + min);
     }
 
-    @Override
-    public String getStringValue() {
-        return "Temperature: " + value + " °" + measurement;
-    }
 }
